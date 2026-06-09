@@ -1,0 +1,41 @@
+[
+  {
+    "pipeline_name": "Customer_Staging_Load",
+    "conflict_key": "email",
+    "sql_placeholder": "target_table_placeholder",
+    "source": {
+      "remote_directory": "/inbound",
+      "file_pattern": "customers_*.csv"
+    },
+    "target": {
+      "table_name_template": "customer_staging_{date}_{run_id}",
+      "ddl_file_path": "customer.sql"
+    }
+  },
+  {
+    "pipeline_name": "Product_Staging_Load",
+    "conflict_key": "id",
+    "sql_placeholder": "target_table_placeholder",
+    "source": {
+      "remote_directory": "/inbound",
+      "file_pattern": "products_*.csv"
+    },
+    "target": {
+      "table_name_template": "product_staging_{date}_{run_id}",
+      "ddl_file_path": "product.sql"
+    }
+  },
+    {
+    "pipeline_name": "Sale_Staging_Load",
+    "conflict_key": "id",
+    "sql_placeholder": "target_table_placeholder",
+    "source": {
+      "remote_directory": "/inbound",
+      "file_pattern": "sales_*.csv"
+    },
+    "target": {
+      "table_name_template": "sale_staging_{date}_{run_id}",
+      "ddl_file_path": "sale.sql"
+    }
+  }
+]
